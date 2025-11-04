@@ -4,32 +4,87 @@
   <meta charset="UTF-8">
   <title>XR∞Miner Dashboard</title>
   <style>
-    body { background: #111; color: #0f0; font-family: monospace; text-align: center; }
-    a { color: #0ff; text-decoration: none; }
-    button { padding: 10px; margin: 10px; background: #222; color: #0f0; border: 1px solid #0f0; }
+    body {
+      background: #000;
+      color: #0f0;
+      font-family: monospace;
+      text-align: center;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #0ff;
+    }
+    button, select {
+      background: #111;
+      color: #0f0;
+      border: 1px solid #0ff;
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    button:hover, select:hover {
+      background: #222;
+    }
+    a {
+      color: #0ff;
+      text-decoration: none;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #0f0;
+    }
   </style>
 </head>
 <body>
   <h1>🚀 XR∞Miner Dashboard</h1>
-  <p>Mining orbitale interamente per XMR, ETH, BCN, QR connection. 100% payout verso wallet personale.</p>
+  <p>Miner orbitale interamente per XMR, ETH, QR connection.<br>100% payout verso wallet personale.</p>
 
-  <button onclick="window.location.href='http://localhost:7777'">🌐 Avvio WebMiner</button>
-  <button onclick="alert('Selettore Moneta non ancora implementato')">💱 Selettore Moneta</button>
+  <!-- Selettore Moneta -->
+  <h2>💱 Seleziona Moneta</h2>
+  <select id="coin">
+    <option value="XMR">XMR</option>
+    <option value="ETH">ETH</option>
+    <option value="QR">QR</option>
+  </select>
 
+  <!-- Bottone Avvia Miner -->
+  <button onclick="avviaMiner()">🚀 Avvia WebMiner</button>
+
+  <!-- Bottone Dashboard -->
+  <button onclick="window.location.href='index.html'">📊 Torna alla Dashboard</button>
+
+  <!-- Monitor API -->
   <h2>📡 Monitor API Miner</h2>
   <p id="api">Caricamento dati real-time...</p>
 
+  <!-- Pool Orbitale -->
   <h2>🌌 Pool Orbitale XR∞</h2>
-  <p>Estremamente al neutro poi decentralizzato.</p>
+  <p>Attivamente al neutro poi decentralizzato.</p>
 
+  <!-- Link GitHub -->
   <p><a href="https://github.com/HighKali/xr-coin">📦 Codice sorgente su GitHub</a></p>
-  <p><em>Ultimo aggiornamento: <!--DATE--></em></p>
+
+  <footer>
+    <p><em>Ultimo aggiornamento: <span id="update"></span></em></p>
+  </footer>
 
   <script>
-    document.querySelector("em").innerText = "Ultimo aggiornamento: " + new Date().toLocaleString();
+    // Aggiorna data
+    document.getElementById("update").innerText = new Date().toLocaleString();
+
+    // Simula monitor API
     setInterval(() => {
       document.getElementById("api").innerText = "Miner attivo su localhost:7777";
     }, 3000);
+
+    // Avvia WebMiner
+    function avviaMiner() {
+      const coin = document.getElementById("coin").value;
+      alert("Avvio WebMiner per " + coin);
+      window.open("http://localhost:7777", "_blank");
+    }
   </script>
 </body>
 </html>
