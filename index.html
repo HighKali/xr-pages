@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>XR∞Miner Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background: #000;
@@ -30,8 +31,11 @@
       color: #0ff;
       text-decoration: none;
     }
-    footer {
+    .section {
       margin-top: 30px;
+    }
+    footer {
+      margin-top: 40px;
       font-size: 0.9em;
       color: #0f0;
     }
@@ -39,32 +43,47 @@
 </head>
 <body>
   <h1>🚀 XR∞Miner Dashboard</h1>
-  <p>Miner orbitale interamente per XMR, ETH, QR connection.<br>100% payout verso wallet personale.</p>
+  <p>Miner orbitale per XMR, ETH, QR — payout 100% verso wallet personale.</p>
 
-  <!-- Selettore Moneta -->
-  <h2>💱 Seleziona Moneta</h2>
-  <select id="coin">
-    <option value="XMR">XMR</option>
-    <option value="ETH">ETH</option>
-    <option value="QR">QR</option>
-  </select>
+  <div class="section">
+    <h2>💱 Seleziona Moneta</h2>
+    <select id="coin">
+      <option value="XMR">XMR</option>
+      <option value="ETH">ETH</option>
+      <option value="QR">QR</option>
+    </select>
+    <button onclick="avviaMiner()">🚀 Avvia WebMiner</button>
+  </div>
 
-  <!-- Bottone Avvia Miner -->
-  <button onclick="avviaMiner()">🚀 Avvia WebMiner</button>
+  <div class="section">
+    <h2>📡 Monitor API Miner</h2>
+    <p id="api">Caricamento dati real-time...</p>
+  </div>
 
-  <!-- Bottone Dashboard -->
-  <button onclick="window.location.href='index.html'">📊 Torna alla Dashboard</button>
+  <div class="section">
+    <h2>🧠 Stato Nodo</h2>
+    <p id="nodo">Nodo XR∞ operativo</p>
+    <p>🕒 Uptime: <span id="uptime">0s</span></p>
+  </div>
 
-  <!-- Monitor API -->
-  <h2>📡 Monitor API Miner</h2>
-  <p id="api">Caricamento dati real-time...</p>
+  <div class="section">
+    <h2>🧬 Monitor Live Token XR∞ su Polygon</h2>
+    <p>Indirizzo: <code>0xfc90516a1f736FaC557e09D8853dB80dA192c296</code></p>
+    <p><a href="https://polygonscan.com/token/0xfc90516a1f736FaC557e09D8853dB80dA192c296" target="_blank">🔍 Visualizza su PolygonScan</a></p>
+    <p><a href="https://tokensniffer.com" target="_blank">🛡️ Analizza su TokenSniffer</a></p>
+  </div>
 
-  <!-- Pool Orbitale -->
-  <h2>🌌 Pool Orbitale XR∞</h2>
-  <p>Attivamente al neutro poi decentralizzato.</p>
+  <div class="section">
+    <h2>🌌 Pool Orbitale XR∞</h2>
+    <p>Attivamente al neutro poi decentralizzato.</p>
+    <button onclick="window.location.href='index.html'">📊 Torna alla Dashboard</button>
+  </div>
 
-  <!-- Link GitHub -->
-  <p><a href="https://github.com/HighKali/xr-coin">📦 Codice sorgente su GitHub</a></p>
+  <div class="section">
+    <h2>🔗 Risorse</h2>
+    <p><a href="https://github.com/HighKali/xr-coin">📦 Codice sorgente su GitHub</a></p>
+    <p><a href="https://highkali.github.io/xr-pages/docs">📚 Documentazione XR∞</a></p>
+  </div>
 
   <footer>
     <p><em>Ultimo aggiornamento: <span id="update"></span></em></p>
@@ -79,11 +98,18 @@
       document.getElementById("api").innerText = "Miner attivo su localhost:7777";
     }, 3000);
 
+    // Simula uptime nodo
+    let seconds = 0;
+    setInterval(() => {
+      seconds++;
+      document.getElementById("uptime").innerText = seconds + "s";
+    }, 1000);
+
     // Avvia WebMiner
     function avviaMiner() {
       const coin = document.getElementById("coin").value;
       alert("Avvio WebMiner per " + coin);
-      window.open("http://localhost:7777", "_blank");
+      window.open("http://localhost:7777?coin=" + coin, "_blank");
     }
   </script>
 </body>
