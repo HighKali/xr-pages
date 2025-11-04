@@ -5,49 +5,14 @@
   <title>XR∞Miner Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      background: radial-gradient(circle at top, #001, #000);
-      color: #0ff;
-      font-family: monospace;
-      text-align: center;
-      padding: 20px;
-    }
-    h1, h2 {
-      color: #00f6ff;
-      text-shadow: 0 0 5px #0ff;
-    }
-    button, select {
-      background: #111;
-      color: #0f0;
-      border: 1px solid #0ff;
-      padding: 10px 20px;
-      margin: 10px;
-      font-size: 1em;
-      cursor: pointer;
-      box-shadow: 0 0 5px #0ff;
-    }
-    button:hover, select:hover {
-      background: #222;
-    }
-    a {
-      color: #0ff;
-      text-decoration: none;
-    }
-    .section {
-      margin-top: 30px;
-      border-top: 1px dashed #0ff;
-      padding-top: 20px;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #0f0;
-    }
-    .repo-buttons button {
-      display: block;
-      margin: 10px auto;
-      width: 80%;
-    }
+    body { background: radial-gradient(circle at top, #001, #000); color: #0ff; font-family: monospace; text-align: center; padding: 20px; }
+    h1, h2 { color: #00f6ff; text-shadow: 0 0 5px #0ff; }
+    button, select { background: #111; color: #0f0; border: 1px solid #0ff; padding: 10px 20px; margin: 10px; font-size: 1em; cursor: pointer; box-shadow: 0 0 5px #0ff; }
+    button:hover, select:hover { background: #222; }
+    a { color: #0ff; text-decoration: none; }
+    .section { margin-top: 30px; border-top: 1px dashed #0ff; padding-top: 20px; }
+    footer { margin-top: 40px; font-size: 0.9em; color: #0f0; }
+    .repo-buttons button { display: block; margin: 10px auto; width: 80%; }
   </style>
 </head>
 <body>
@@ -81,7 +46,7 @@
   </div>
 
   <div class="section">
-    <h2>🧬 Token $DSN su Polygon</h2>
+    <h2>🧬 Token  su Polygon</h2>
     <p>Indirizzo: <code>0xfc90516a1f736FaC557e09D8853dB80dA192c296</code></p>
     <p><a href="https://birdeye.so/polygon/token/0xfc90516a1f736FaC557e09D8853dB80dA192c296" target="_blank">💹 Prezzo live su Birdeye</a></p>
     <iframe src="https://birdeye.so/polygon/token/0xfc90516a1f736FaC557e09D8853dB80dA192c296/embed" width="100%" height="300" style="border:none;"></iframe>
@@ -102,22 +67,10 @@
   </footer>
 
   <script>
-    // Aggiorna data
     document.getElementById("update").innerText = new Date().toLocaleString();
-
-    // Simula monitor API
-    setInterval(() => {
-      document.getElementById("api").innerText = "Miner attivo su localhost:7777";
-    }, 3000);
-
-    // Simula uptime nodo
+    setInterval(() => { document.getElementById("api").innerText = "Miner attivo su localhost:7777"; }, 3000);
     let seconds = 0;
-    setInterval(() => {
-      seconds++;
-      document.getElementById("uptime").innerText = seconds + "s";
-    }, 1000);
-
-    // Avvia WebMiner
+    setInterval(() => { seconds++; document.getElementById("uptime").innerText = seconds + "s"; }, 1000);
     function avviaMiner() {
       const coin = document.getElementById("coin").value;
       alert("Avvio WebMiner per " + coin);
