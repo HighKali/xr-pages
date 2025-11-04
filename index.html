@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: #000;
-      color: #0f0;
+      background: radial-gradient(circle at top, #001, #000);
+      color: #0ff;
       font-family: monospace;
       text-align: center;
       padding: 20px;
     }
     h1, h2 {
-      color: #0ff;
+      color: #00f6ff;
+      text-shadow: 0 0 5px #0ff;
     }
     button, select {
       background: #111;
@@ -23,6 +24,7 @@
       margin: 10px;
       font-size: 1em;
       cursor: pointer;
+      box-shadow: 0 0 5px #0ff;
     }
     button:hover, select:hover {
       background: #222;
@@ -33,11 +35,18 @@
     }
     .section {
       margin-top: 30px;
+      border-top: 1px dashed #0ff;
+      padding-top: 20px;
     }
     footer {
       margin-top: 40px;
       font-size: 0.9em;
       color: #0f0;
+    }
+    .repo-buttons button {
+      display: block;
+      margin: 10px auto;
+      width: 80%;
     }
   </style>
 </head>
@@ -67,26 +76,29 @@
   </div>
 
   <div class="section">
-    <h2>🧬 Monitor Live Token XR∞ su Polygon</h2>
+    <h2>⚒️ Hashrate Cryptonote</h2>
+    <p>⛏️ <strong>1312.08 H/s</strong></p>
+  </div>
+
+  <div class="section">
+    <h2>🧬 Token $DSN su Polygon</h2>
     <p>Indirizzo: <code>0xfc90516a1f736FaC557e09D8853dB80dA192c296</code></p>
-    <p><a href="https://polygonscan.com/token/0xfc90516a1f736FaC557e09D8853dB80dA192c296" target="_blank">🔍 Visualizza su PolygonScan</a></p>
-    <p><a href="https://tokensniffer.com" target="_blank">🛡️ Analizza su TokenSniffer</a></p>
+    <p><a href="https://birdeye.so/polygon/token/0xfc90516a1f736FaC557e09D8853dB80dA192c296" target="_blank">💹 Prezzo live su Birdeye</a></p>
+    <iframe src="https://birdeye.so/polygon/token/0xfc90516a1f736FaC557e09D8853dB80dA192c296/embed" width="100%" height="300" style="border:none;"></iframe>
   </div>
 
   <div class="section">
-    <h2>🌌 Pool Orbitale XR∞</h2>
-    <p>Attivamente al neutro poi decentralizzato.</p>
-    <button onclick="window.location.href='index.html'">📊 Torna alla Dashboard</button>
-  </div>
-
-  <div class="section">
-    <h2>🔗 Risorse</h2>
-    <p><a href="https://github.com/HighKali/xr-coin">📦 Codice sorgente su GitHub</a></p>
-    <p><a href="https://highkali.github.io/xr-pages/docs">📚 Documentazione XR∞</a></p>
+    <h2>🌌 Repository Orbitanti</h2>
+    <div class="repo-buttons">
+      <button onclick="window.open('https://github.com/HighKali/XR-Miner.git', '_blank')">🛠️ XR-Miner</button>
+      <button onclick="window.open('https://github.com/HighKali/ecoblock-hostblock.git', '_blank')">🌱 Ecoblock Hostblock</button>
+      <button onclick="window.open('https://github.com/HighKali/rackchain-os-xr', '_blank')">🧬 Rackchain OS XR</button>
+    </div>
   </div>
 
   <footer>
     <p><em>Ultimo aggiornamento: <span id="update"></span></em></p>
+    <p>🌙 XR∞ Industrial Constellation — ogni nodo è un battito, ogni fork una stella</p>
   </footer>
 
   <script>
